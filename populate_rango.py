@@ -19,7 +19,7 @@ def populate():
         {'title': 'Official Django Tutorial',
          'url': 'https://docs.djangoproject.com/en/2.1/intro/tutorial01/'},
         {'title': 'Django Rocks',
-         'url': 'http://www.tangowithdjango.com/'},
+         'url': 'http://www.djangorocks.com/'},
         {'title': 'How to Tango with Django',
          'url': 'http://www.tangowithdjango.com/'}  ]
     
@@ -27,7 +27,7 @@ def populate():
         {'title': 'Bottle',
          'url': 'http://bottlepy.org/docs/dev/'},
         {'title': 'Flask',
-         'url': 'http://bottlepy.org/docs/dev/'} ]
+         'url': 'http://flask.pocoo.org'} ]
 
     cats = {'Python': {'pages': python_pages, 'views':128, 'likes': 64},
             'Django': {'pages': djano_pages, 'views': 64, 'likes': 32},
