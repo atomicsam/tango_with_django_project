@@ -31,10 +31,10 @@
         {% endif %}
         <div>
             <h2>Most Viewed Pages</h2>
-            {% if most_viewed %}
-                {% for view in most_viewed %}
+            {% if pages %}
+                {% for page in pages %}
                 <li>
-                    <a href="{{ view.url }}">{{ view.title }}</a>
+                    <a href="{{ page.url }}">{{ page.title }}</a>
                 </li>
                 {% endfor %}
            {% else %}

@@ -6,12 +6,15 @@ from rango.models import Page
 # Create your views here.
 def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
-    most_viewed = Page.objects.order_by('views')[:5]
+    most_viewed = Page.objects.order_by('-views')[:5]
 
     context_dict = {}
     context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
     context_dict['categories'] = category_list
-    context_dict['most_viewed'] = most_viewed
+    try:
+        context_dict['pages'] = most_viewed
+    except Category.DoesNotExist:
+        context_dict['pages'] = None
 
     return render(request, 'rango/index.html', context=context_dict)
 
