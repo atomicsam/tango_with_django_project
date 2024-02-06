@@ -51,6 +51,9 @@ def show_category(request, category_name_slug):
 def add_category(request):
     form = CategoryForm()
 
+    if not request.user.is_active:
+        return redirect(reverse('rango:login'))
+
     if request.method == 'POST':
         form = CategoryForm(request.POST)
 
@@ -74,9 +77,11 @@ def add_page(request, category_name_slug):
     
     form = PageForm()
 
+    if not request.user.is_active:
+        return redirect(reverse('rango:login'))
+
     if request.method=="POST":
         form = PageForm(request.POST)
-
         if form.is_valid():
             if category:
                 page = form.save(commit=False)
@@ -149,7 +154,7 @@ def user_login(request):
     
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+    return render(request, 'rango/restricted.html')
 
 @login_required
 def user_logout(request):
